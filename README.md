@@ -39,6 +39,12 @@ $ pipenv shell
 $ ./manage.py migrate
 ```
 
+* Populate DB
+
+```bash
+$ ./manage.py shell < populate_db.py
+```
+
 * Run tests to verify that everything is working fine:
 
 ```bash
@@ -49,7 +55,3 @@ $ ./manage.py test
 ```bash
 $ ./manage.py runserver
 ```
-
-* Populate DB
-```bash
-$ 

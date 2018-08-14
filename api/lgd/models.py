@@ -1,10 +1,8 @@
 from django.db import models
 
-from django.db import models
-
 class Order(models.Model):
 	user_id = models.IntegerField()
-	date = models.DateTimeField()
+	date = models.DateTimeField(db_index=True)
 	subtotal = models.FloatField()
 	discount = models.FloatField(default=0)
 	total = models.FloatField()
@@ -15,7 +13,7 @@ class Order(models.Model):
 	address_city = models.CharField(max_length=100)
 	address_state = models.CharField(max_length=10)
 	utm_source_medium = models.CharField(max_length=200)
-	device_type = models.CharField(max_length=200)
+	device_type = models.CharField(db_index=True, max_length=200)
 
 	def __str__(self):
 		return str(self.id)
@@ -24,7 +22,7 @@ class OrderItem(models.Model):
 	order = models.ForeignKey(Order, on_delete=models.CASCADE)
 	sku = models.CharField(max_length=200)
 	quantity = models.IntegerField(default=1)
-	code_color = models.CharField(max_length=200)
+	code_color = models.CharField(db_index=True, max_length=200)
 
 	def __str__(self):
 		return self.sku

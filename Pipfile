@@ -8,3 +8,6 @@ name = "pypi"
 [packages]
 django = "*"
 djangorestframework = "*"
+sqlalchemy = "*"
+pandas = "*"
+numpy = "*"
